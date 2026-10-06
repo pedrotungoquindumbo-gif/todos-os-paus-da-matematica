@@ -9,18 +9,12 @@ const app = express();
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-// ============================================================================
-// CONFIGURAÇÃO DO MODO DE MANUTENÇÃO (MAINTENANCE MODE)
-// ----------------------------------------------------------------------------
-// Para ATIVAR o modo de manutenção: defina como true
-// Para DESATIVAR e exibir o site normal: defina como false
-// Também pode ser controlado pela variável de ambiente: MAINTENANCE_MODE=true/false
-// ============================================================================
+// Configuração do modo de manutenção
 let MAINTENANCE_MODE = process.env.MAINTENANCE_MODE !== undefined 
   ? process.env.MAINTENANCE_MODE === 'true' 
-  : true; // <--- Altere aqui para false quando quiser desativar!
+  : true;
 
-// Servir arquivos estáticos sem interceptar automaticamente a raiz com index.html
+// Servir arquivos estáticos
 app.use(express.static(__dirname, { index: false }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
@@ -31,8 +25,8 @@ app.get('*', (req, res) => {
     return res.sendFile(path.join(__dirname, 'maintenance.html'));
   }
 
-  // Acesso ao site original se necessário (/site)
-  if (req.path === '/site') {
+  // Acesso ao site original se necessário (/site ou /site.html)
+  if (req.path === '/site' || req.path === '/site.html' || req.path === '/principal') {
     return res.sendFile(path.join(__dirname, 'index.html'));
   }
 
@@ -47,5 +41,5 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, HOST, () => {
   console.log(`Servidor iniciado em http://${HOST}:${PORT}`);
-  console.log(`Modo de Manutenção: ${MAINTENANCE_MODE ? 'ATIVADO (Exibindo página de construção)' : 'DESATIVADO (Exibindo index.html)'}`);
+  console.log(`Modo de Manutenção: ${MAINTENANCE_MODE ? 'ATIVADO (Exibindo página de manutenção)' : 'DESATIVADO (Exibindo index.html)'}`);
 });

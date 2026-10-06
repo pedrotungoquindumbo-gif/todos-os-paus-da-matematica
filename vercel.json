@@ -3,8 +3,8 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/site", "destination": "/index.html" },
-    { "source": "/manutencao", "destination": "/maintenance.html" },
-    { "source": "/", "destination": "/maintenance.html" }
+    { "source": "/site", "destination": "/site.html" },
+    { "source": "/principal", "destination": "/site.html" },
+    { "source": "/manutencao", "destination": "/maintenance.html" }
   ]
 }

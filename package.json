@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "mkdir -p public && cp -rf index.html maintenance.html book-cover.png public/"
+    "build": "mkdir -p public && cp -f maintenance.html public/index.html && cp -f index.html public/site.html && cp -f maintenance.html public/maintenance.html && cp -f book-cover.png public/ 2>/dev/null || true"
   },
   "dependencies": {
     "express": "^4.21.2"
