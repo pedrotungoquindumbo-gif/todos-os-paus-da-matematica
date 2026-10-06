@@ -22,6 +22,7 @@ let MAINTENANCE_MODE = process.env.MAINTENANCE_MODE !== undefined
 
 // Servir arquivos estáticos sem interceptar automaticamente a raiz com index.html
 app.use(express.static(__dirname, { index: false }));
+app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
 // Roteamento com suporte a modo de manutenção
 app.get('*', (req, res) => {
