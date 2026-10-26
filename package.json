@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "mkdir -p public/assets/images && cp -rf src/assets/images/* public/assets/images/ 2>/dev/null || true && cp -f index.html public/index.html && cp -f index.html public/site.html && cp -f maintenance.html public/maintenance.html && cp -f book-cover.png book-cover-vol2.jpg book-cover-vol3.jpg author.jpg 1.png 2.png 3.png public/ 2>/dev/null || true"
+    "build": "mkdir -p public/assets/images && cp -rf src/assets/images/* public/assets/images/ && cp -f index.html public/index.html && cp -f index.html public/site.html && cp -f maintenance.html public/maintenance.html && cp -f sw.js public/sw.js && node scripts/verify-assets.js"
   },
   "dependencies": {
     "@google/genai": "^2.31.0",

@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Pré-carregamento prioritário da imagem do Hero (responsivo: mobile carrega versão leve, desktop carrega 1600px) -->
-  <link rel="preload" as="image" href="/public/assets/optimized/hero_mobile.webp" media="(max-width: 960px)" fetchpriority="high">
-  <link rel="preload" as="image" href="/public/assets/optimized/hero_desktop.webp" media="(min-width: 961px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/hero-mobile.webp" media="(max-width: 960px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/hero-desktop.webp" media="(min-width: 961px)" fetchpriority="high">
 
   <style>
     /* ═════════════════════════════════════════════════════════════
@@ -1726,8 +1726,8 @@
   <section class="section section--hero section--left" id="hero">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
-        <img src="/public/assets/optimized/hero_desktop.webp" alt="Todos os Paus da Matemática" class="section__bg-media" width="1376" height="768" fetchpriority="high">
+        <source media="(max-width: 960px)" srcset="/assets/images/hero-mobile.webp">
+        <img src="/assets/images/hero-desktop.webp" alt="Todos os Paus da Matemática" class="section__bg-media" width="1376" height="768" fetchpriority="high">
       </picture>
       <div class="section__media-gradient"></div>
     </div>
@@ -1746,8 +1746,8 @@
   <section class="section section--left" id="missao">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
-        <img src="/public/assets/optimized/orbit_desktop.webp" alt="A missão" class="section__bg-media" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/fundo-orbitas-mobile.webp">
+        <img src="/assets/images/fundo-orbitas-desktop.webp" alt="A missão" class="section__bg-media" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__media-gradient"></div>
     </div>
@@ -1766,8 +1766,8 @@
   <section class="section section--center" id="colecao">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
-        <img src="/public/assets/optimized/hero_desktop.webp" alt="A Coleção" class="section__bg-media" style="opacity: 0.15;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/hero-mobile.webp">
+        <img src="/assets/images/hero-desktop.webp" alt="A Coleção" class="section__bg-media" style="opacity: 0.15;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__media-gradient"></div>
     </div>
@@ -1780,7 +1780,7 @@
       <ul class="collection-list">
         <!-- Linha Volume I -->
         <li class="collection-item" onclick="scrollToId('volume-1')">
-          <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="collection-thumb" width="120" height="134" loading="lazy" decoding="async">
+          <img src="/assets/images/capa-volume-1.webp" alt="Capa Volume I" class="collection-thumb" width="120" height="134" loading="lazy" decoding="async">
           <div class="collection-info">
             <div class="collection-name">Volume I — Construir a base</div>
             <div class="collection-status collection-status--active">● Disponível agora</div>
@@ -1790,7 +1790,7 @@
 
         <!-- Linha Volume II -->
         <li class="collection-item" onclick="scrollToId('volume-2')">
-          <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
+          <img src="/assets/images/capa-volume-2.webp" alt="Capa Volume II" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
           <div class="collection-info">
             <div class="collection-name">Volume II — Vencer o nível médio</div>
             <div class="collection-status">● Pré-reserva</div>
@@ -1800,7 +1800,7 @@
 
         <!-- Linha Volume III -->
         <li class="collection-item" onclick="scrollToId('volume-3')">
-          <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
+          <img src="/assets/images/capa-volume-3.webp" alt="Capa Volume III" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
           <div class="collection-info">
             <div class="collection-name">Volume III — Introdução ao cálculo</div>
             <div class="collection-status">● Pré-reserva</div>
@@ -1817,11 +1817,11 @@
   <section class="section section--left" id="volume-1">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
-        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume I" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/fundo-orbitas-mobile.webp">
+        <img src="/assets/images/fundo-orbitas-desktop.webp" alt="Fundo Volume I" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__book-center">
-        <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="section__book-img" width="220" height="246" loading="lazy" decoding="async">
+        <img src="/assets/images/capa-volume-1.webp" alt="Capa Volume I" class="section__book-img" width="220" height="246" loading="lazy" decoding="async">
       </div>
       <div class="section__media-gradient"></div>
     </div>
@@ -1843,11 +1843,11 @@
   <section class="section section--right" id="volume-2">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
-        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume II" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/fundo-orbitas-mobile.webp">
+        <img src="/assets/images/fundo-orbitas-desktop.webp" alt="Fundo Volume II" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__book-center">
-        <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
+        <img src="/assets/images/capa-volume-2.webp" alt="Capa Volume II" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
       </div>
       <div class="section__media-gradient"></div>
     </div>
@@ -1870,11 +1870,11 @@
   <section class="section section--left" id="volume-3">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
-        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume III" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/fundo-orbitas-mobile.webp">
+        <img src="/assets/images/fundo-orbitas-desktop.webp" alt="Fundo Volume III" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__book-center">
-        <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
+        <img src="/assets/images/capa-volume-3.webp" alt="Capa Volume III" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
       </div>
       <div class="section__media-gradient"></div>
     </div>
@@ -1896,7 +1896,7 @@
        ═════════════════════════════════════════════════════════════ -->
   <section class="section section--right section--professor" id="professor">
     <div class="section__media-wrap">
-      <img src="/public/assets/optimized/author.webp" alt="Prof. Celestino Findoff" class="section__professor-photo" width="180" height="231" loading="lazy" decoding="async">
+      <img src="/assets/images/foto-autor.webp" alt="Prof. Celestino Findoff" class="section__professor-photo" width="180" height="231" loading="lazy" decoding="async">
       <div class="section__media-gradient"></div>
     </div>
 
@@ -1917,8 +1917,8 @@
   <section class="section section--center" id="testemunhos">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
-        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Testemunhos" class="section__bg-media" style="opacity: 0.14;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/fundo-orbitas-mobile.webp">
+        <img src="/assets/images/fundo-orbitas-desktop.webp" alt="Testemunhos" class="section__bg-media" style="opacity: 0.14;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__media-gradient"></div>
     </div>
@@ -1936,41 +1936,41 @@
         <div class="student-gallery-scroll" id="studentGalleryScroll">
 
           <!-- Estudante 1: Manuel • Pré-Universitário -->
-          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_3_full.webp', 'Manuel • Pré-Universitário', event)">
+          <div class="student-card" onclick="openStudentModal('/assets/images/testemunho-manuel-full.webp', 'Manuel • Pré-Universitário', event)">
             <div class="student-frame">
-              <img src="/public/assets/optimized/testemunho_3_thumb.webp" alt="Manuel • Pré-Universitário" class="student-img" width="280" height="447" loading="lazy" decoding="async">
+              <img src="/assets/images/testemunho-manuel-thumb.webp" alt="Manuel • Pré-Universitário" class="student-img" width="280" height="447" loading="lazy" decoding="async">
             </div>
             <div class="student-caption">Manuel • Pré-Universitário</div>
           </div>
 
           <!-- Estudante 2: Edmilson • 11ª Classe -->
-          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_4_full.webp', 'Edmilson • 11ª Classe', event)">
+          <div class="student-card" onclick="openStudentModal('/assets/images/testemunho-edmilson-full.webp', 'Edmilson • 11ª Classe', event)">
             <div class="student-frame">
-              <img src="/public/assets/optimized/testemunho_4_thumb.webp" alt="Edmilson • 11ª Classe" class="student-img" width="280" height="206" loading="lazy" decoding="async">
+              <img src="/assets/images/testemunho-edmilson-thumb.webp" alt="Edmilson • 11ª Classe" class="student-img" width="280" height="206" loading="lazy" decoding="async">
             </div>
             <div class="student-caption">Edmilson • 11ª Classe</div>
           </div>
 
           <!-- Estudante 3: Mário • 12ª Classe -->
-          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_mario_full.webp', 'Mário • 12ª Classe', event)">
+          <div class="student-card" onclick="openStudentModal('/assets/images/testemunho-mario-full.webp', 'Mário • 12ª Classe', event)">
             <div class="student-frame">
-              <img src="/public/assets/optimized/testemunho_mario_thumb.webp" alt="Mário • 12ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
+              <img src="/assets/images/testemunho-mario-thumb.webp" alt="Mário • 12ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
             </div>
             <div class="student-caption">Mário • 12ª Classe</div>
           </div>
 
           <!-- Estudante 4: Bruno • 11ª Classe -->
-          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_bruno_full.webp', 'Bruno • 11ª Classe', event)">
+          <div class="student-card" onclick="openStudentModal('/assets/images/testemunho-bruno-full.webp', 'Bruno • 11ª Classe', event)">
             <div class="student-frame">
-              <img src="/public/assets/optimized/testemunho_bruno_thumb.webp" alt="Bruno • 11ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
+              <img src="/assets/images/testemunho-bruno-thumb.webp" alt="Bruno • 11ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
             </div>
             <div class="student-caption">Bruno • 11ª Classe</div>
           </div>
 
           <!-- Estudante 5: Rafael • 10ª Classe -->
-          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_1_full.webp', 'Rafael • 10ª Classe', event)">
+          <div class="student-card" onclick="openStudentModal('/assets/images/testemunho-rafael-full.webp', 'Rafael • 10ª Classe', event)">
             <div class="student-frame">
-              <img src="/public/assets/optimized/testemunho_1_thumb.webp" alt="Rafael • 10ª Classe" class="student-img" width="280" height="472" loading="lazy" decoding="async">
+              <img src="/assets/images/testemunho-rafael-thumb.webp" alt="Rafael • 10ª Classe" class="student-img" width="280" height="472" loading="lazy" decoding="async">
             </div>
             <div class="student-caption">Rafael • 10ª Classe</div>
           </div>
@@ -1986,8 +1986,8 @@
   <section class="section section--center" id="como-comprar">
     <div class="section__media-wrap">
       <picture>
-        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
-        <img src="/public/assets/optimized/hero_desktop.webp" alt="Como comprar e Suporte" class="section__bg-media" style="opacity: 0.12;" width="1376" height="768" loading="lazy" decoding="async">
+        <source media="(max-width: 960px)" srcset="/assets/images/hero-mobile.webp">
+        <img src="/assets/images/hero-desktop.webp" alt="Como comprar e Suporte" class="section__bg-media" style="opacity: 0.12;" width="1376" height="768" loading="lazy" decoding="async">
       </picture>
       <div class="section__media-gradient"></div>
     </div>
@@ -2091,7 +2091,7 @@
       <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
       <h3 class="modal-title">Volume I — Construir a base</h3>
 
-      <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="modal-cover" width="240" height="268" loading="lazy" decoding="async">
+      <img src="/assets/images/capa-volume-1.webp" alt="Capa Volume I" class="modal-cover" width="240" height="268" loading="lazy" decoding="async">
 
       <div class="modal-section-title">PARA QUEM É?</div>
       <div class="modal-target">
@@ -2123,7 +2123,7 @@
       <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
       <h3 class="modal-title">Volume II — Vencer o nível médio</h3>
 
-      <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
+      <img src="/assets/images/capa-volume-2.webp" alt="Capa Volume II" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
 
       <div class="modal-section-title">PARA QUEM É?</div>
       <div class="modal-target">
@@ -2155,7 +2155,7 @@
       <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
       <h3 class="modal-title">Volume III — Introdução ao Cálculo</h3>
 
-      <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
+      <img src="/assets/images/capa-volume-3.webp" alt="Capa Volume III" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
 
       <div class="modal-section-title">PARA QUEM É?</div>
       <div class="modal-target">
@@ -2187,7 +2187,7 @@
       <span class="modal-tag">PERFIL PEDAGÓGICO</span>
       <h3 class="modal-title">Prof. Celestino Findoff</h3>
 
-      <img src="/public/assets/optimized/author.webp" alt="Prof. Celestino Findoff" class="modal-cover" width="240" height="308" style="max-height: 240px; object-fit: contain;" loading="lazy" decoding="async">
+      <img src="/assets/images/foto-autor.webp" alt="Prof. Celestino Findoff" class="modal-cover" width="240" height="308" style="max-height: 240px; object-fit: contain;" loading="lazy" decoding="async">
 
       <div class="modal-section-title">SOBRE</div>
       <p class="modal-desc">Celestino Donga André Filipe, conhecido como Celestino Findoff, nasceu no Uíge, no município de Maquela do Zombo, e cresceu em Luanda, onde estudou até ao ensino superior.</p>
@@ -2213,7 +2213,7 @@
       <div class="assistant-header">
         <div class="assistant-header-profile">
           <div class="assistant-avatar-wrap" style="width: 36px; height: 36px;">
-            <img src="/public/assets/optimized/author.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="36" height="36" loading="lazy">
+            <img src="/assets/images/foto-autor.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="36" height="36" loading="lazy">
             <span class="assistant-online-dot"></span>
           </div>
           <div>
@@ -2268,7 +2268,7 @@
     <!-- Botão Flutuante (sempre visível no canto inferior) -->
     <button class="assistant-trigger" id="assistantTrigger" onclick="toggleAssistant()" aria-label="Abrir atendimento">
       <div class="assistant-avatar-wrap">
-        <img src="/public/assets/optimized/author.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="44" height="44" loading="lazy">
+        <img src="/assets/images/foto-autor.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="44" height="44" loading="lazy">
         <span class="assistant-online-dot"></span>
       </div>
       <div class="assistant-trigger-text">

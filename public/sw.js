@@ -1,13 +1,15 @@
-// Service Worker para cache inteligente (v2 - Network-first para HTML / Cache-first para assets)
-const CACHE_NAME = 'matematica-findoff-v2';
+// Service Worker para cache inteligente (v3 - Network-first para HTML / Cache-first para assets)
+const CACHE_NAME = 'matematica-findoff-v3';
 
 const STATIC_ASSETS_TO_CACHE = [
-  '/public/assets/optimized/hero_mobile.webp',
-  '/public/assets/optimized/hero_desktop.webp',
-  '/public/assets/optimized/cover_vol1.webp',
-  '/public/assets/optimized/cover_vol2.webp',
-  '/public/assets/optimized/cover_vol3.webp',
-  '/public/assets/optimized/author.webp'
+  '/assets/images/hero-mobile.webp',
+  '/assets/images/hero-desktop.webp',
+  '/assets/images/fundo-orbitas-desktop.webp',
+  '/assets/images/fundo-orbitas-mobile.webp',
+  '/assets/images/capa-volume-1.webp',
+  '/assets/images/capa-volume-2.webp',
+  '/assets/images/capa-volume-3.webp',
+  '/assets/images/foto-autor.webp'
 ];
 
 self.addEventListener('install', (event) => {
@@ -48,12 +50,13 @@ self.addEventListener('fetch', (event) => {
     url.pathname.endsWith('.html') ||
     (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
 
-  // 1. ESTRATÉGIA NETWORK-FIRST PARA HTML (garante que alterações e saída de manutenção entram na hora)
+  // 1. ESTRATÉGIA NETWORK-FIRST PARA HTML (garante versão fresca da rede)
   if (isHtmlRequest) {
     event.respondWith(
       fetch(event.request)
         .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
+          // Apenas guardar em cache se a resposta for OK (response.ok)
+          if (networkResponse && networkResponse.ok) {
             const resClone = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(event.request, resClone);
@@ -84,7 +87,8 @@ self.addEventListener('fetch', (event) => {
             return cachedResponse;
           }
           return fetch(event.request).then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
+            // Apenas guardar em cache se a resposta for estritamente OK (response.ok)
+            if (networkResponse && networkResponse.ok) {
               cache.put(event.request, networkResponse.clone());
             }
             return networkResponse;
@@ -95,7 +99,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Padrão: Network-first
+  // Padrão: Network-first com validação response.ok
   event.respondWith(
     fetch(event.request).catch(() => caches.match(event.request))
   );

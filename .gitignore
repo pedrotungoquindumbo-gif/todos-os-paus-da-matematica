@@ -2,3 +2,12 @@ node_modules/
 .env
 .env.local
 .DS_Store
+
+# Garante que a pasta public e todas as imagens entram sempre no repositório Git
+!public/
+!public/assets/
+!public/assets/images/
+!*.webp
+!*.png
+!*.jpg
+!*.svg

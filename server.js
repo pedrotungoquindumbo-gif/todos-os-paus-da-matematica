@@ -186,7 +186,8 @@ const staticCacheOptions = {
   }
 };
 
-// Servir arquivos do app (capas dos livros, public, webp)
+// Servir arquivos do app (capas dos livros, public, webp, assets)
+app.use('/assets', express.static(path.join(__dirname, 'public/assets'), staticCacheOptions));
 app.use('/public', express.static(path.join(__dirname, 'public'), staticCacheOptions));
 app.use(express.static(path.join(__dirname, 'public'), staticCacheOptions));
 
