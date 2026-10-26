@@ -1,408 +1,2601 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Em Manutenção — Todos os Paus da Matemática</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Todos os Paus da Matemática // Prof. Celestino Findoff</title>
+  <meta name="description" content="Coleção de 3 livros de Matemática, do básico ao cálculo. Obra pedagógica do Prof. Celestino Findoff.">
+  <meta property="og:title" content="Todos os Paus da Matemática // Prof. Celestino Findoff">
+  <meta property="og:description" content="Coleção de 3 livros de Matemática, do básico ao cálculo.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#000000">
 
-  body {
-    background-color: #0A0A0A;
-    background-image: 
-      radial-gradient(circle at 20% 20%, rgba(192, 57, 43, 0.14) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(192, 57, 43, 0.10) 0%, transparent 50%);
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #D1D5DB;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 36px 20px;
-    overflow-x: hidden;
-  }
+  <!-- Pré-carregamento prioritário de fontes Google (apenas pesos 700, 800 e 400, 600 com swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  .container {
-    width: 100%;
-    max-width: 1060px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-    margin: auto;
-  }
+  <!-- Pré-carregamento prioritário da imagem do Hero (responsivo: mobile carrega versão leve, desktop carrega 1600px) -->
+  <link rel="preload" as="image" href="/public/assets/optimized/hero_mobile.webp" media="(max-width: 960px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/public/assets/optimized/hero_desktop.webp" media="(min-width: 961px)" fetchpriority="high">
 
-  /* ══════════════ LEFT COLUMN ══════════════ */
-  .content-col {
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .main-title {
-    font-family: 'Anton', Impact, 'Arial Black', sans-serif;
-    font-size: clamp(54px, 7.5vw, 82px);
-    line-height: 1;
-    letter-spacing: 0.03em;
-    color: #C0392B;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    text-shadow: 0 4px 20px rgba(192, 57, 43, 0.35);
-  }
-
-  .sub-title {
-    font-size: clamp(18px, 2.3vw, 24px);
-    font-style: italic;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 18px;
-    line-height: 1.3;
-  }
-
-  .description {
-    font-size: clamp(14px, 1.4vw, 15.5px);
-    line-height: 1.75;
-    color: #A3A3A3;
-    margin-bottom: 30px;
-    max-width: 440px;
-  }
-
-  .description strong {
-    color: #FFFFFF;
-    font-weight: 600;
-  }
-
-  /* ══════════════ BOTÃO BRANCO DE COMPRA ══════════════ */
-  .action-wrap {
-    width: 100%;
-    max-width: 380px;
-    margin-bottom: 32px;
-  }
-
-  .btn-white-buy {
-    width: 100%;
-    height: 52px;
-    background-color: #FFFFFF;
-    color: #0A0A0A;
-    border: none;
-    border-radius: 9999px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13.5px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.22);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  }
-
-  .btn-white-buy:hover {
-    background-color: #F3F4F6;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(255, 255, 255, 0.38);
-  }
-
-  .btn-white-buy:active {
-    transform: translateY(0);
-  }
-
-  .btn-white-buy svg {
-    width: 22px;
-    height: 22px;
-    fill: #25D366;
-    flex-shrink: 0;
-  }
-
-  /* ══════════════ REDES SOCIAIS (WHATSAPP & FACEBOOK) ══════════════ */
-  .social-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .social-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #737373;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: #141414;
-    border: 1px solid #262626;
-    border-radius: 50%;
-    color: #C0392B;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .social-icon:hover {
-    background: #C0392B;
-    color: #FFFFFF;
-    border-color: #C0392B;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(192, 57, 43, 0.45);
-  }
-
-  .social-icon svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
-  }
-
-  /* ══════════════ RIGHT COLUMN: LIQUIDIFICADOR 404 (PRETO E VERMELHO) ══════════════ */
-  .image-col {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 500px;
-  }
-
-  .blender-svg {
-    width: 100%;
-    max-width: 440px;
-    height: auto;
-    filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7));
-  }
-
-  /* ══════════════ RESPONSIVE ══════════════ */
-  @media (max-width: 860px) {
-    .container {
-      flex-direction: column-reverse;
-      gap: 36px;
-      margin: 16px auto;
+  <style>
+    /* ═════════════════════════════════════════════════════════════
+       RESET E VARIÁVEIS GLOBAIS
+       ═════════════════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .content-col {
-      max-width: 100%;
+    :root {
+      --font-title: 'Barlow Condensed', sans-serif, system-ui;
+      --font-body: 'Inter', sans-serif, system-ui;
+      --bg-black: #000000;
+      --text-white: #ffffff;
+      --text-muted: rgba(240, 240, 250, 0.88);
+      --text-subtle: rgba(240, 240, 250, 0.65);
+      --btn-border: rgba(255, 255, 255, 0.4);
+      --pad-mobile: 22px;
+      --sec-gap: 80px;
+      --header-h: 72px;
     }
 
-    .image-col {
+    html {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+      overflow-x: hidden;
+      min-height: 100vh;
       width: 100%;
-      max-width: 320px;
     }
-  }
-</style>
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    /* Redução de movimento acessível e modo poupança de dados */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    .save-data *, .save-data *::before, .save-data *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       HEADER COM DETEÇÃO DE SCROLL (TRANSPARENTE -> FUNDO + BLUR)
+       ═════════════════════════════════════════════════════════════ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-h);
+      padding: 0 var(--pad-mobile);
+      background: transparent;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, backdrop-filter 0.35s ease;
+    }
+
+    .header.scrolled {
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header.header--hidden {
+      transform: translateY(-100%);
+    }
+
+    .header__logo {
+      font-family: var(--font-title);
+      font-size: clamp(14px, 4.4vw, 19px);
+      font-weight: 800;
+      letter-spacing: clamp(0.06em, 1.2vw, 0.12em);
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #ffffff;
+      padding-right: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header__nav-desktop {
+      display: none;
+    }
+
+    .header__hamburger {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 6px;
+      padding: 6px;
+      flex-shrink: 0;
+      z-index: 1002;
+    }
+
+    .header__hamburger span {
+      display: block;
+      height: 2px;
+      background-color: #ffffff;
+      transition: all 0.25s ease;
+    }
+
+    .header__hamburger span:nth-child(1) { width: 24px; }
+    .header__hamburger span:nth-child(2) { width: 16px; }
+    .header__hamburger span:nth-child(3) { width: 20px; }
+
+    .header__hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      width: 22px;
+    }
+    .header__hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .header__hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+      width: 22px;
+    }
+
+    /* Menu Lateral Mobile Drawer */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 380px;
+      background: rgba(5, 5, 8, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 1001;
+      padding: 96px 28px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu__links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .mobile-menu__link {
+      font-family: var(--font-title);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .mobile-menu__link:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    .mobile-menu__footer {
+      font-size: 13px;
+      color: var(--text-subtle);
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 18px;
+    }
+
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .menu-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       BOTÕES PADRÃO (MIN-HEIGHT 52PX, BORDER-RADIUS 6PX, MAIÚSCULAS)
+       ═════════════════════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid var(--btn-border);
+      border-radius: 6px;
+      padding: 14px 22px;
+      min-height: 52px;
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-color: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .btn-arrow {
+      display: inline-block;
+      transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(6px);
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       ANIMAÇÕES CINEMÁTICAS (SCROLL REVEAL SUAVE & PROFISSIONAL)
+       ═════════════════════════════════════════════════════════════ */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn--solid {
+      background-color: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .btn--solid:hover {
+      background-color: transparent;
+      color: #ffffff;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .note-subtext {
+      font-size: 12.5px;
+      color: var(--text-subtle);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       ANATOMIA DE CADA SECÇÃO NO MOBILE (< 961px)
+       ═════════════════════════════════════════════════════════════ */
+    .section {
+      width: 100%;
+      margin-bottom: var(--sec-gap);
+      position: relative;
+      scroll-margin-top: var(--header-h);
+    }
+
+    /* Secção Hero no mobile: 100svh de altura */
+    .section--hero {
+      min-height: 100svh;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: var(--sec-gap);
+    }
+
+    .section--hero .section__media-wrap {
+      position: absolute;
+      inset: 0;
+      aspect-ratio: auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    .section--hero .section__content {
+      position: relative;
+      z-index: 3;
+      margin-top: 0;
+      padding: 0 var(--pad-mobile) 50px var(--pad-mobile);
+    }
+
+    /* Bloco de mídia no topo: 100% largura, proporção 4/5 */
+    .section__media-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background-color: #020204;
+    }
+
+    .section__media-wrap picture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .section__bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border: none;
+      border-radius: 0;
+    }
+
+    /* Capa centrada sobre o fundo nos volumes I, II e III */
+    .section__book-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 56px;
+      z-index: 1;
+    }
+
+    .section__book-img {
+      width: 56vw;
+      max-width: 220px;
+      height: auto;
+      max-height: 70%;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.9));
+    }
+
+    /* Foto do professor encostada ao topo com o mesmo degradê */
+    .section__professor-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%) contrast(110%);
+    }
+
+    /* Degradê na base: linear-gradient(to bottom, transparent 45%, #000 100%) */
+    .section__media-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 45%, #000000 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Título sobreposto ao fim do degradê (margin-top negativo ~ -64px) */
+    .section__content {
+      position: relative;
+      margin-top: -64px;
+      z-index: 3;
+      padding: 0 var(--pad-mobile);
+    }
+
+    .section__tag {
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section__title {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.05;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+    }
+
+    .section__text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 14px;
+      margin-bottom: 22px;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       SECÇÃO 3: A COLEÇÃO (LISTA DE 3 LINHAS, MINIATURAS 56x76PX)
+       ═════════════════════════════════════════════════════════════ */
+    .collection-box {
+      padding: 0 var(--pad-mobile);
+    }
+
+    .collection-list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .collection-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: padding-left 0.2s ease;
+    }
+
+    .collection-item:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .collection-item:hover {
+      padding-left: 6px;
+    }
+
+    .collection-thumb {
+      width: 56px;
+      height: 76px;
+      border-radius: 6px;
+      object-fit: contain;
+      background: #08080c;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .collection-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .collection-name {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .collection-status {
+      font-size: 13.5px;
+      color: var(--text-subtle);
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .collection-status--active {
+      color: #4ade80;
+    }
+
+    .collection-arrow {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.6);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .collection-item:hover .collection-arrow {
+      transform: translateX(4px);
+      color: #ffffff;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       SECÇÃO 8: COMO COMPRAR (3 PASSOS, WHATSAPP, TELEFONES)
+       ═════════════════════════════════════════════════════════════ */
+    .como-comprar-box {
+      padding: 0 var(--pad-mobile);
+    }
+
+    .steps-container {
+      margin: 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 16px 18px;
+    }
+
+    .step-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .step-title {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .phones-block {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .phones-label {
+      font-family: var(--font-title);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
+    .phone-item {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s;
+    }
+
+    .phone-item:hover {
+      color: #4ade80;
+    }
+
+    .phone-icon-white {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    /* Atalhos Redes Sociais e Suporte */
+    .social-shortcuts {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .social-shortcuts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .social-shortcuts-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .social-btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .social-btn-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       SECÇÃO 9: RODAPÉ
+       ═════════════════════════════════════════════════════════════ */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px var(--pad-mobile);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 13.5px;
+      color: var(--text-subtle);
+    }
+
+    .footer__copyright {
+      line-height: 1.6;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .footer__links a {
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover {
+      color: #ffffff;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       MODAIS "VER CONTEÚDO" (SEM DADOS DE PAGAMENTO)
+       ═════════════════════════════════════════════════════════════ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+    }
+
+    .modal-box {
+      background: #08080a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 660px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px 24px;
+      color: #ffffff;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-backdrop.open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-close:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .modal-cover {
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      margin: 16px 0 20px;
+      border-radius: 4px;
+    }
+
+    .modal-tag {
+      font-family: var(--font-title);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-title);
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.15;
+      margin: 4px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .modal-section-title {
+      font-family: var(--font-title);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 16px 0 6px;
+    }
+
+    .modal-topics {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 8px 0 16px;
+    }
+
+    .modal-topics li {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .modal-topics li::before {
+      content: "—";
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .modal-target {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 2px solid #ffffff;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       DESKTOP (≥ 961px): 100svh, ALTERNANDO ESQUERDA/DIREITA
+       ═════════════════════════════════════════════════════════════ */
+    @media (min-width: 961px) {
+      :root {
+        --sec-gap: 0px;
+        --header-h: 84px;
+      }
+
+      .header {
+        height: var(--header-h);
+        padding: 0 64px;
+      }
+
+      .header__logo {
+        font-size: 20px;
+      }
+
+      .header__hamburger {
+        display: none;
+      }
+
+      .header__nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .header__nav-link {
+        font-family: var(--font-title);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.2s;
+      }
+
+      .header__nav-link:hover {
+        color: #ffffff;
+      }
+
+      .header__nav-link.btn-header {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 10px 20px;
+        border-radius: 6px;
+        min-height: auto;
+        color: #ffffff;
+      }
+
+      .header__nav-link.btn-header:hover {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      /* Desktop: Seções com 100svh */
+      .section {
+        min-height: 100svh;
+        height: 100svh;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+
+      .section__media-wrap {
+        position: absolute;
+        inset: 0;
+        aspect-ratio: auto;
+        height: 100%;
+        width: 100%;
+      }
+
+      /* Degradê só do lado do texto no Desktop */
+      .section--left .section__media-gradient {
+        background: linear-gradient(to right, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.72) 42%, transparent 100%);
+      }
+
+      .section--right .section__media-gradient {
+        background: linear-gradient(to left, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.72) 42%, transparent 100%);
+      }
+
+      .section--center .section__media-gradient {
+        background: radial-gradient(circle at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.98) 100%);
+      }
+
+      /* Capas nos Volumes: lado OPOSTO ao texto, máx. 340px, a 80px da borda */
+      .section--left .section__book-center {
+        inset: auto;
+        right: 80px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-bottom: 0;
+      }
+
+      .section--right .section__book-center {
+        inset: auto;
+        left: 80px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-bottom: 0;
+      }
+
+      .section__book-img {
+        width: auto;
+        max-width: 340px;
+        max-height: 72vh;
+        filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.95));
+      }
+
+      /* Foto do Professor no Desktop: do lado esquerdo com enquadramento perfeito */
+      .section--professor .section__professor-photo {
+        object-position: 70% top;
+      }
+
+      /* Texto ancorado em baixo (80px da borda) */
+      .section__content {
+        margin-top: 0;
+        margin-bottom: 80px;
+        max-width: 580px;
+        padding: 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .section--left .section__content {
+        margin-left: 80px;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .section--right .section__content {
+        margin-right: 80px;
+        margin-left: auto;
+        text-align: left;
+      }
+
+      .section--center .section__content {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        max-width: 760px;
+      }
+
+      .section__title {
+        font-size: 52px;
+        line-height: 1.0;
+      }
+
+      .section__text {
+        font-size: 16px;
+      }
+
+      .btn-group {
+        flex-direction: row;
+        width: auto;
+      }
+
+      .btn {
+        width: auto;
+        min-width: 200px;
+      }
+
+      /* Desktop Coleção e Como Comprar */
+      .collection-box {
+        width: 100%;
+        max-width: 860px;
+        margin: 0 auto 80px auto;
+        padding: 0;
+        z-index: 10;
+      }
+
+      .como-comprar-box {
+        width: 100%;
+        max-width: 860px;
+        margin: 0 auto 80px auto;
+        padding: 0;
+        z-index: 10;
+      }
+
+      .steps-container {
+        flex-direction: row;
+      }
+
+      .step-card {
+        flex: 1;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer {
+        padding: 44px 80px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       ASSISTENTE VIRTUAL NO SITE (MENSAGEM DE BOAS-VINDAS / CONCIERGE)
+       ═════════════════════════════════════════════════════════════ */
+    .site-assistant {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      font-family: var(--font-body);
+    }
+
+    .assistant-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 6px 14px 6px 6px;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .assistant-trigger:hover {
+      transform: translateY(-2px);
+      border-color: #ffffff;
+      background: rgba(28, 28, 34, 0.98);
+    }
+
+    .assistant-avatar-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .assistant-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .assistant-online-dot {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      width: 11px;
+      height: 11px;
+      background-color: #22c55e;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    .assistant-trigger-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .assistant-trigger-title {
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .assistant-trigger-sub {
+      font-size: 11.5px;
+      color: rgba(240, 240, 250, 0.7);
+    }
+
+    .assistant-card {
+      width: clamp(310px, 94vw, 380px);
+      background: rgba(12, 12, 16, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 85vh;
+    }
+
+    .assistant-card.is-open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .assistant-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .assistant-header-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .assistant-close {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+
+    .assistant-close:hover {
+      color: #ffffff;
+    }
+
+    .assistant-messages {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 360px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .chat-msg {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 90%;
+      animation: fadeInMsg 0.25s ease-out;
+    }
+
+    @keyframes fadeInMsg {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-msg--assistant {
+      align-self: flex-start;
+    }
+
+    .chat-msg--user {
+      align-self: flex-end;
+    }
+
+    .chat-bubble {
+      padding: 12px 14px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      border-radius: 12px;
+      word-break: break-word;
+    }
+
+    .chat-msg--assistant .chat-bubble {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 3px solid #22c55e;
+      color: rgba(240, 240, 250, 0.95);
+      border-top-left-radius: 2px;
+    }
+
+    .chat-msg--user .chat-bubble {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 500;
+      border-top-right-radius: 2px;
+    }
+
+    .chat-bubble a {
+      color: #4ade80;
+      text-decoration: underline;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .chat-msg--user .chat-bubble a {
+      color: #000000;
+    }
+
+    .chat-suggestions {
+      padding: 4px 16px 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 10px;
+    }
+
+    .chat-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 6px 11px;
+      font-size: 11.5px;
+      font-family: var(--font-body);
+      color: rgba(240, 240, 250, 0.9);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .chat-chip:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .chat-input-bar {
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .chat-input:focus {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .chat-input::placeholder {
+      color: rgba(240, 240, 250, 0.5);
+    }
+
+    .chat-send-btn {
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .chat-send-btn:hover {
+      background: #22c55e;
+      color: #ffffff;
+    }
+
+    .chat-typing {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      width: fit-content;
+      font-size: 11.5px;
+      color: rgba(240, 240, 250, 0.7);
+    }
+
+    .chat-typing-dots {
+      display: inline-flex;
+      gap: 3px;
+    }
+
+    .chat-typing-dot {
+      width: 4px;
+      height: 4px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blinkDots 1.4s infinite both;
+    }
+
+    .chat-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    /* ═════════════════════════════════════════════════════════════
+       SECÇÃO TESTEMUNHOS: CARROSSEL DE TELEFONES "MENSAGENS DE MEMBROS"
+       ═════════════════════════════════════════════════════════════ */
+    .testimonials-box {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto 60px auto;
+      padding: 0 var(--pad-mobile);
+      z-index: 10;
+      position: relative;
+    }
+
+    .testimonials-header-bar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .testimonials-main-title {
+      font-family: var(--font-title);
+      font-size: clamp(28px, 4.5vw, 38px);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .testimonials-subtitle {
+      font-size: 13.5px;
+      color: rgba(240, 240, 250, 0.65);
+      margin-top: 5px;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       GALERIA DE MENSAGENS DE ALUNOS (MOLDURAS ARREDONDADAS)
+       ═════════════════════════════════════════════════════════════ */
+    .student-gallery-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 16px 0 10px 0;
+    }
+
+    .student-gallery-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 4px 16px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.08);
+    }
+
+    .student-gallery-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .student-gallery-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+    }
+
+    .student-gallery-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+
+    .student-gallery-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .student-card {
+      flex: 0 0 72vw;
+      max-width: 300px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.25s ease;
+    }
+
+    @media (min-width: 768px) {
+      .student-card {
+        flex: 0 0 280px;
+        max-width: 280px;
+      }
+    }
+
+    .student-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .student-frame {
+      width: 100%;
+      height: 500px;
+      aspect-ratio: 9 / 16;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #09090d;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.25s ease;
+    }
+
+    @media (max-width: 767px) {
+      .student-frame {
+        height: 460px;
+      }
+    }
+
+    .student-card:hover .student-frame {
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .student-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #09090d;
+    }
+
+    .student-caption {
+      font-family: var(--font-title);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(240, 240, 250, 0.85);
+      margin-top: 10px;
+      text-align: center;
+      transition: color 0.2s ease;
+    }
+
+    .student-card:hover .student-caption {
+      color: #ffffff;
+    }
+
+    /* ═════════════════════════════════════════════════════════════
+       MODAL DE AMPLIAR CAPTURA DO ALUNO
+       ═════════════════════════════════════════════════════════════ */
+    .student-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .student-modal.is-open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .student-modal-wrapper {
+      position: relative;
+      max-width: 92vw;
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .student-modal-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+      background: #000;
+    }
+
+    .student-modal-caption {
+      margin-top: 10px;
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .student-modal-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .student-modal-close:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .signing-feature {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      max-height: 240px;
+      margin-top: 20px;
+    }
+
+    .signing-feature-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.85);
+    }
+
+    .signing-feature-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+      text-align: left;
+    }
+
+    .signing-feature-tag {
+      font-family: var(--font-title);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: 2px;
+    }
+
+    .signing-feature-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+  </style>
 </head>
 <body>
 
-  <main class="container">
-    
-    <!-- Left Column: Copy Institucional Profissional, Botão Branco & Contactos -->
-    <div class="content-col">
-      <h1 class="main-title">DESCULPE!</h1>
-      <h2 class="sub-title">Nosso site está em manutenção</h2>
-      
-      <p class="description">
-        A nossa plataforma encontra-se temporariamente em manutenção programada para melhoria contínua dos nossos serviços e canais de atendimento digital.
-        <br><br>
-        As encomendas e o fornecimento oficial da obra <strong>Todos os Paus da Matemática</strong> continuam totalmente operacionais através da nossa linha direta.
-      </p>
+  <!-- ═════════════════════════════════════════════════════════════
+       HEADER (TRANSPARENTE -> FUNDO + BLUR; ESCONDE AO DESCER)
+       ═════════════════════════════════════════════════════════════ -->
+  <header class="header" id="mainHeader">
+    <a href="#hero" class="header__logo">TODOS OS PAUS DA MATEMÁTICA</a>
 
-      <!-- Botão Branco em Destaque para Garantir o Livro pelo WhatsApp -->
-      <div class="action-wrap">
-        <a 
-          href="https://wa.me/244936560098?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20o%20meu%20exemplar%20do%20livro%20Todos%20os%20Paus%20da%20Matem%C3%A1tica." 
-          target="_blank" 
-          rel="noopener" 
-          class="btn-white-buy"
-          title="Solicitar exemplar oficial pelo WhatsApp"
-        >
-          <svg viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Garantir o Livro pelo WhatsApp
-        </a>
+    <!-- Menu Horizontal Desktop (sem hambúrguer) -->
+    <nav class="header__nav-desktop">
+      <a href="#colecao" class="header__nav-link">A Coleção</a>
+      <a href="#volume-1" class="header__nav-link">Volume I</a>
+      <a href="#volume-2" class="header__nav-link">Volume II</a>
+      <a href="#volume-3" class="header__nav-link">Volume III</a>
+      <a href="#professor" class="header__nav-link">O Professor</a>
+      <a href="#testemunhos" class="header__nav-link">Testemunhos</a>
+      <a href="#como-comprar" class="header__nav-link btn-header">Como comprar & Suporte</a>
+    </nav>
+
+    <!-- Hambúrguer Mobile -->
+    <button class="header__hamburger" id="hamburgerBtn" aria-label="Abrir Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="#colecao" class="mobile-menu__link" onclick="closeMenu()">A Coleção <span>→</span></a></li>
+      <li><a href="#volume-1" class="mobile-menu__link" onclick="closeMenu()">Volume I <span>→</span></a></li>
+      <li><a href="#volume-2" class="mobile-menu__link" onclick="closeMenu()">Volume II <span>→</span></a></li>
+      <li><a href="#volume-3" class="mobile-menu__link" onclick="closeMenu()">Volume III <span>→</span></a></li>
+      <li><a href="#professor" class="mobile-menu__link" onclick="closeMenu()">O Professor <span>→</span></a></li>
+      <li><a href="#testemunhos" class="mobile-menu__link" onclick="closeMenu()">Testemunhos <span>→</span></a></li>
+      <li><a href="#como-comprar" class="mobile-menu__link" onclick="closeMenu()" style="color: #4ade80;">Como comprar & Suporte <span>→</span></a></li>
+    </ul>
+
+    <div class="mobile-menu__footer">
+      <div>Atendimento direto no WhatsApp:</div>
+      <div style="font-weight: 700; color: #fff; margin-top: 4px;">+244 936 560 098</div>
+      <div style="font-weight: 700; color: #fff;">+244 949 042 732</div>
+    </div>
+  </aside>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       1. HERO (100SVH, ETIQUETA, TÍTULO, 1 LINHA DE TEXTO E BOTÃO)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--hero section--left" id="hero">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
+        <img src="/public/assets/optimized/hero_desktop.webp" alt="Todos os Paus da Matemática" class="section__bg-media" width="1376" height="768" fetchpriority="high">
+      </picture>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll is-revealed">
+      <span class="section__tag">Edição oficial</span>
+      <h1 class="section__title">Todos os Paus da Matemática</h1>
+      <p class="section__text">Coleção de 3 livros de Matemática, do básico ao cálculo.</p>
+      <a href="#colecao" class="btn btn--solid">Conhecer a coleção <span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       2. MISSÃO (TEXTO À ESQUERDA NO DESKTOP)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--left" id="missao">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
+        <img src="/public/assets/optimized/orbit_desktop.webp" alt="A missão" class="section__bg-media" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll">
+      <span class="section__tag">A missão</span>
+      <h2 class="section__title">Matemática ao alcance de todos</h2>
+      <p class="section__text">Criámos esta coleção para que nenhum estudante continue a ver a Matemática como um bicho de sete cabeças. Quando a explicação é simples e direta, qualquer aluno ganha confiança para aprender e vencer.</p>
+      <a href="#colecao" class="btn">Explorar <span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       3. A COLEÇÃO (MINIATURAS 56x76PX, LINHAS DIVISÓRIAS)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--center" id="colecao">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
+        <img src="/public/assets/optimized/hero_desktop.webp" alt="A Coleção" class="section__bg-media" style="opacity: 0.15;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="collection-box reveal-on-scroll">
+      <span class="section__tag">A coleção</span>
+      <h2 class="section__title" style="font-size: clamp(32px, 5vw, 46px);">A Coleção</h2>
+      <p class="section__text">Todos os Paus da Matemática é uma sebenta preparatória em três volumes, organizados do mais simples ao mais avançado. Foi feita para alunos e professores que querem rever e consolidar a Matemática, sobretudo para se prepararem para provas, exames e testes de ingresso.</p>
+
+      <ul class="collection-list">
+        <!-- Linha Volume I -->
+        <li class="collection-item" onclick="scrollToId('volume-1')">
+          <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="collection-thumb" width="120" height="134" loading="lazy" decoding="async">
+          <div class="collection-info">
+            <div class="collection-name">Volume I — Construir a base</div>
+            <div class="collection-status collection-status--active">● Disponível agora</div>
+          </div>
+          <span class="collection-arrow">→</span>
+        </li>
+
+        <!-- Linha Volume II -->
+        <li class="collection-item" onclick="scrollToId('volume-2')">
+          <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
+          <div class="collection-info">
+            <div class="collection-name">Volume II — Vencer o nível médio</div>
+            <div class="collection-status">● Pré-reserva</div>
+          </div>
+          <span class="collection-arrow">→</span>
+        </li>
+
+        <!-- Linha Volume III -->
+        <li class="collection-item" onclick="scrollToId('volume-3')">
+          <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="collection-thumb" width="120" height="160" loading="lazy" decoding="async">
+          <div class="collection-info">
+            <div class="collection-name">Volume III — Introdução ao cálculo</div>
+            <div class="collection-status">● Pré-reserva</div>
+          </div>
+          <span class="collection-arrow">→</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       4. VOLUME I (TEXTO À ESQUERDA, CAPA À DIREITA NO DESKTOP)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--left" id="volume-1">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
+        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume I" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__book-center">
+        <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="section__book-img" width="220" height="246" loading="lazy" decoding="async">
+      </div>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll">
+      <span class="section__tag">Volume I // Disponível agora</span>
+      <h2 class="section__title">Construir a base</h2>
+      <p class="section__text">Conjuntos, potenciação, radiciação, polinómios e equações. É o ponto de partida onde tudo ganha sentido, com explicações simples, truques de cálculo rápido e passos detalhados.</p>
+      <div class="btn-group">
+        <button class="btn btn--solid" onclick="openModal('vol1')">Ver conteúdo <span class="btn-arrow">→</span></button>
+        <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20comprar%20o%20Volume%20I.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn">Comprar no WhatsApp <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       5. VOLUME II (TEXTO À DIREITA, CAPA À ESQUERDA NO DESKTOP)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--right" id="volume-2">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
+        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume II" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__book-center">
+        <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
+      </div>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll">
+      <span class="section__tag">Volume II // Pré-reserva</span>
+      <h2 class="section__title">Vencer o nível médio</h2>
+      <p class="section__text">Exponenciais, logaritmos, inequações, trigonometria e geometria analítica. Os conteúdos do secundário explicados fórmula a fórmula, de forma clara para ninguém se perder.</p>
+      <div class="btn-group">
+        <button class="btn btn--solid" onclick="openModal('vol2')">Ver conteúdo <span class="btn-arrow">→</span></button>
+        <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20reservar%20o%20Volume%20II.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn">Reservar no WhatsApp <span class="btn-arrow">→</span></a>
+      </div>
+      <p class="note-subtext">Reservas o teu exemplar e avisamos quando o volume estiver disponível.</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       6. VOLUME III (TEXTO À ESQUERDA, CAPA À DIREITA NO DESKTOP)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--left" id="volume-3">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
+        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Fundo Volume III" class="section__bg-media" style="opacity: 0.25;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__book-center">
+        <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="section__book-img" width="220" height="293" loading="lazy" decoding="async">
+      </div>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll">
+      <span class="section__tag">Volume III // Pré-reserva</span>
+      <h2 class="section__title">Introdução ao cálculo</h2>
+      <p class="section__text">Sucessões, limites, derivadas, estudo de funções e integrais. A matéria explicada de forma direta e sem rodeios, para quem quer entrar preparado no Ensino Superior.</p>
+      <div class="btn-group">
+        <button class="btn btn--solid" onclick="openModal('vol3')">Ver conteúdo <span class="btn-arrow">→</span></button>
+        <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20reservar%20o%20Volume%20III.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn">Reservar no WhatsApp <span class="btn-arrow">→</span></a>
+      </div>
+      <p class="note-subtext">Reservas o teu exemplar e avisamos quando o volume estiver disponível.</p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       7. PROFESSOR (TEXTO À DIREITA NO DESKTOP, FOTO NO TOPO)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--right section--professor" id="professor">
+    <div class="section__media-wrap">
+      <img src="/public/assets/optimized/author.webp" alt="Prof. Celestino Findoff" class="section__professor-photo" width="180" height="231" loading="lazy" decoding="async">
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="section__content reveal-on-scroll">
+      <span class="section__tag">O professor</span>
+      <h2 class="section__title">Prof. Celestino Findoff</h2>
+      <p class="section__text">Celestino Findoff é professor de Matemática e Física no Ensino Secundário e no Ensino Técnico-Profissional. Licenciou-se em Ensino da Matemática no ISCED-Luanda e prepara estudantes para os testes de ingresso ao Ensino Superior.</p>
+      <div class="btn-group">
+        <button class="btn btn--solid" onclick="openModal('mentor')">Falar com o professor <span class="btn-arrow">→</span></button>
+        <a href="https://youtu.be/3_t95Ty8BkY?si=VAFu0AHINa0_R7x2" target="_blank" rel="noopener noreferrer" class="btn" title="Sugestões de leitura nas Tardes da Kianda com escritor Celestino Findoff">Entrevista nas Tardes da Kianda <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       8. TESTEMUNHOS & RESULTADOS (OPINIÕES DE ESTUDANTES E PROFESSORES)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--center" id="testemunhos">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/orbit_mobile.webp">
+        <img src="/public/assets/optimized/orbit_desktop.webp" alt="Testemunhos" class="section__bg-media" style="opacity: 0.14;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="testimonials-box reveal-on-scroll">
+      <div class="testimonials-header-bar">
+        <div class="testimonials-title-wrap">
+          <h2 class="testimonials-main-title">MENSAGENS DE ESTUDANTES</h2>
+          <div class="testimonials-subtitle">Conversas reais de estudantes que já têm o livro.</div>
+        </div>
       </div>
 
-      <!-- Redes Sociais: Apenas WhatsApp e Facebook -->
-      <div class="social-box">
-        <span class="social-label">Atendimento Oficial</span>
-        <div class="social-links">
-          <!-- WhatsApp Oficial -->
-          <a href="https://wa.me/244936560098?text=Ol%C3%A1!%20Gostaria%20de%20falar%20sobre%20a%20encomenda%20do%20livro%20Todos%20os%20Paus%20da%20Matem%C3%A1tica." target="_blank" rel="noopener" class="social-icon" title="Atendimento WhatsApp (+244 936 560 098)">
-            <svg viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+      <!-- Galeria de Capturas de Ecrã dos Estudantes (Moldura arredondada de telemóvel) -->
+      <div class="student-gallery-wrapper">
+        <div class="student-gallery-scroll" id="studentGalleryScroll">
+
+          <!-- Estudante 1: Manuel • Pré-Universitário -->
+          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_3_full.webp', 'Manuel • Pré-Universitário', event)">
+            <div class="student-frame">
+              <img src="/public/assets/optimized/testemunho_3_thumb.webp" alt="Manuel • Pré-Universitário" class="student-img" width="280" height="447" loading="lazy" decoding="async">
+            </div>
+            <div class="student-caption">Manuel • Pré-Universitário</div>
+          </div>
+
+          <!-- Estudante 2: Edmilson • 11ª Classe -->
+          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_4_full.webp', 'Edmilson • 11ª Classe', event)">
+            <div class="student-frame">
+              <img src="/public/assets/optimized/testemunho_4_thumb.webp" alt="Edmilson • 11ª Classe" class="student-img" width="280" height="206" loading="lazy" decoding="async">
+            </div>
+            <div class="student-caption">Edmilson • 11ª Classe</div>
+          </div>
+
+          <!-- Estudante 3: Mário • 12ª Classe -->
+          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_mario_full.webp', 'Mário • 12ª Classe', event)">
+            <div class="student-frame">
+              <img src="/public/assets/optimized/testemunho_mario_thumb.webp" alt="Mário • 12ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
+            </div>
+            <div class="student-caption">Mário • 12ª Classe</div>
+          </div>
+
+          <!-- Estudante 4: Bruno • 11ª Classe -->
+          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_bruno_full.webp', 'Bruno • 11ª Classe', event)">
+            <div class="student-frame">
+              <img src="/public/assets/optimized/testemunho_bruno_thumb.webp" alt="Bruno • 11ª Classe" class="student-img" width="280" height="373" loading="lazy" decoding="async">
+            </div>
+            <div class="student-caption">Bruno • 11ª Classe</div>
+          </div>
+
+          <!-- Estudante 5: Rafael • 10ª Classe -->
+          <div class="student-card" onclick="openStudentModal('/public/assets/optimized/testemunho_1_full.webp', 'Rafael • 10ª Classe', event)">
+            <div class="student-frame">
+              <img src="/public/assets/optimized/testemunho_1_thumb.webp" alt="Rafael • 10ª Classe" class="student-img" width="280" height="472" loading="lazy" decoding="async">
+            </div>
+            <div class="student-caption">Rafael • 10ª Classe</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       9. COMO COMPRAR & SUPORTE (CENTRADA NO DESKTOP, WHATSAPP, REDES)
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section section--center" id="como-comprar">
+    <div class="section__media-wrap">
+      <picture>
+        <source media="(max-width: 960px)" srcset="/public/assets/optimized/hero_mobile.webp">
+        <img src="/public/assets/optimized/hero_desktop.webp" alt="Como comprar e Suporte" class="section__bg-media" style="opacity: 0.12;" width="1376" height="768" loading="lazy" decoding="async">
+      </picture>
+      <div class="section__media-gradient"></div>
+    </div>
+
+    <div class="como-comprar-box reveal-on-scroll">
+      <span class="section__tag">Aquisição & Suporte</span>
+      <h2 class="section__title" style="font-size: clamp(32px, 5vw, 46px);">Como comprar & Suporte</h2>
+      <p class="section__text">A compra e o apoio ao estudante são feitos diretamente pelo WhatsApp. Se restou qualquer dúvida sobre os volumes, o conteúdo, a entrega ou o pagamento, fala connosco e respondemos de imediato.</p>
+
+      <!-- 3 Passos -->
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-title">Escolhe o volume</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-title">Fala connosco no WhatsApp</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-title">Combina o pagamento e a entrega</div>
+        </div>
+      </div>
+
+      <!-- Botão Tirar dúvidas e Comprar no WhatsApp com largura 100% -->
+      <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20tirar%20uma%20d%C3%BAvida%20e%20saber%20como%20adquirir%20a%20cole%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn--solid btn--full">
+        Tirar dúvidas e comprar no WhatsApp <span class="btn-arrow">→</span>
+      </a>
+
+      <!-- Atalhos de Redes Sociais e Aulas -->
+      <div class="social-shortcuts">
+        <div class="phones-label">CANAIS OFICIAIS & REDES SOCIAIS:</div>
+        <div class="social-shortcuts-list">
+          <a href="https://www.facebook.com/lucianoinacio.findoff" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <div class="social-btn-inner">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.89h-2.33v6.99C18.34 21.12 22 16.99 22 12z"/>
+              </svg>
+              <span>Facebook do Professor</span>
+            </div>
+            <span class="btn-arrow">→</span>
           </a>
 
-          <!-- Facebook Oficial -->
-          <a href="https://www.facebook.com/selestino.filipe.5/" target="_blank" rel="noopener" class="social-icon" title="Canal Oficial no Facebook">
-            <svg viewBox="0 0 24 24">
-              <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.626h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.325V1.325C24 .597 23.405 0 22.675 0z"/>
-            </svg>
+          <a href="https://youtu.be/3_t95Ty8BkY?si=VAFu0AHINa0_R7x2" target="_blank" rel="noopener noreferrer" class="social-btn" title="Sugestões de leitura nas Tardes da Kianda com escritor Celestino Findoff">
+            <div class="social-btn-inner">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M21.58 7.19a2.76 2.76 0 0 0-1.95-1.96C17.9 4.75 12 4.75 12 4.75s-5.9 0-7.63.48a2.76 2.76 0 0 0-1.95 1.96A28.84 28.84 0 0 0 2 12.04a28.84 28.84 0 0 0 .42 4.85 2.76 2.76 0 0 0 1.95 1.96c1.73.48 7.63.48 7.63.48s5.9 0 7.63-.48a2.76 2.76 0 0 0 1.95-1.96 28.84 28.84 0 0 0 .42-4.85 28.84 28.84 0 0 0-.42-4.85zM9.75 15.02V9.06l5.75 2.98-5.75 2.98z"/>
+              </svg>
+              <span>Entrevista nas Tardes da Kianda</span>
+            </div>
+            <span class="btn-arrow">→</span>
           </a>
         </div>
       </div>
 
+      <!-- Telefones com ícone branco, cada um na sua linha -->
+      <div class="phones-block">
+        <div class="phones-label">CONTACTOS TELEFÓNICOS DIRETOS:</div>
+        <a href="tel:+244936560098" class="phone-item">
+          <svg class="phone-icon-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          936 560 098
+        </a>
+        <a href="tel:+244949042732" class="phone-item">
+          <svg class="phone-icon-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          949 042 732
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       9. RODAPÉ
+       ═════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__copyright">
+      © 2026 Todos os Paus da Matemática // Prof. Celestino Findoff
     </div>
 
-    <!-- Right Column: Vector Blender with 404 in Red & Black -->
-    <div class="image-col">
-      <svg class="blender-svg" viewBox="0 0 540 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        
-        <!-- Ground Ellipse Shadow -->
-        <ellipse cx="370" cy="545" rx="160" ry="10" fill="#141414"/>
+    <ul class="footer__links">
+      <li><a href="https://wa.me/244936560098" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+      <li><a href="https://youtu.be/3_t95Ty8BkY?si=VAFu0AHINa0_R7x2" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a href="https://www.facebook.com/lucianoinacio.findoff" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+    </ul>
+  </footer>
 
-        <!-- ════════ BACKGROUND GEARS IN SUBTLE DARK TONES ════════ -->
-        
-        <!-- Large Right Gear -->
-        <g transform="translate(425, 290) rotate(18)">
-          <circle cx="0" cy="0" r="62" fill="#1A1A1A"/>
-          <circle cx="0" cy="0" r="28" fill="#0A0A0A"/>
-          <rect x="-10" y="-76" width="20" height="20" rx="3" fill="#1A1A1A"/>
-          <rect x="-10" y="56" width="20" height="20" rx="3" fill="#1A1A1A"/>
-          <rect x="-76" y="-10" width="20" height="20" rx="3" fill="#1A1A1A"/>
-          <rect x="56" y="-10" width="20" height="20" rx="3" fill="#1A1A1A"/>
-          <rect x="-56" y="-56" width="20" height="20" rx="3" fill="#1A1A1A" transform="rotate(45)"/>
-          <rect x="36" y="-56" width="20" height="20" rx="3" fill="#1A1A1A" transform="rotate(45)"/>
-          <rect x="-56" y="36" width="20" height="20" rx="3" fill="#1A1A1A" transform="rotate(45)"/>
-          <rect x="36" y="36" width="20" height="20" rx="3" fill="#1A1A1A" transform="rotate(45)"/>
-        </g>
+  <!-- ═════════════════════════════════════════════════════════════
+       MODAIS "VER CONTEÚDO" (DADOS PROGRAMÁTICOS COMPLETOS)
+       ═════════════════════════════════════════════════════════════ -->
 
-        <!-- Left Gear 1 (Lower) -->
-        <g transform="translate(325, 315) rotate(8)">
-          <circle cx="0" cy="0" r="48" fill="#161616"/>
-          <circle cx="0" cy="0" r="22" fill="#0A0A0A"/>
-          <rect x="-8" y="-60" width="16" height="16" rx="2" fill="#161616"/>
-          <rect x="-8" y="44" width="16" height="16" rx="2" fill="#161616"/>
-          <rect x="-60" y="-8" width="16" height="16" rx="2" fill="#161616"/>
-          <rect x="44" y="-8" width="16" height="16" rx="2" fill="#161616"/>
-          <rect x="-44" y="-44" width="16" height="16" rx="2" fill="#161616" transform="rotate(45)"/>
-          <rect x="28" y="-44" width="16" height="16" rx="2" fill="#161616" transform="rotate(45)"/>
-          <rect x="-44" y="28" width="16" height="16" rx="2" fill="#161616" transform="rotate(45)"/>
-          <rect x="28" y="28" width="16" height="16" rx="2" fill="#161616" transform="rotate(45)"/>
-        </g>
+  <!-- Modal Volume I -->
+  <div class="modal-backdrop" id="modal-vol1" onclick="handleBackdropClick(event, 'modal-vol1')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-vol1')">FECHAR ✕</button>
+      <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
+      <h3 class="modal-title">Volume I — Construir a base</h3>
 
-        <!-- Left Gear 2 (Upper Small) -->
-        <g transform="translate(350, 235) rotate(32)">
-          <circle cx="0" cy="0" r="32" fill="#1E1E1E"/>
-          <circle cx="0" cy="0" r="14" fill="#0A0A0A"/>
-          <rect x="-6" y="-40" width="12" height="12" rx="2" fill="#1E1E1E"/>
-          <rect x="-6" y="28" width="12" height="12" rx="2" fill="#1E1E1E"/>
-          <rect x="-40" y="-6" width="12" height="12" rx="2" fill="#1E1E1E"/>
-          <rect x="28" y="-6" width="12" height="12" rx="2" fill="#1E1E1E"/>
-        </g>
+      <img src="/public/assets/optimized/cover_vol1.webp" alt="Capa Volume I" class="modal-cover" width="240" height="268" loading="lazy" decoding="async">
 
-        <!-- ════════ BLENDER JAR HANDLE ════════ -->
-        <path d="M410 200 C475 200 475 330 410 330" fill="none" stroke="#2B2B2B" stroke-width="18" stroke-linecap="round"/>
+      <div class="modal-section-title">PARA QUEM É?</div>
+      <div class="modal-target">
+        Alunos da 7ª à 10ª classe e professores. Também serve para quem vai fazer testes de ingresso ao Ensino Médio (IMEL, IMIL, INP, ITEL), ao Ensino Superior ou a concursos públicos.
+      </div>
 
-        <!-- ════════ BLENDER GLASS JAR BODY ════════ -->
-        <path d="M334 150 L322 150 L340 345 C340 355 350 365 365 365 L415 365 C430 365 440 355 440 345 L456 150 Z" 
-              fill="rgba(255, 255, 255, 0.05)" stroke="#383838" stroke-width="5" stroke-linejoin="round"/>
+      <div class="modal-section-title">SOBRE ESTE VOLUME</div>
+      <p class="modal-desc">É o volume de partida. Reúne a matéria em que o resto se apoia, com explicações em linguagem simples, truques de cálculo rápido e exercícios resolvidos passo a passo.</p>
 
-        <!-- Jar Base Rim Connector -->
-        <rect x="345" y="358" width="90" height="16" rx="5" fill="#1E1E1E" stroke="#C0392B" stroke-width="2"/>
+      <div class="modal-section-title">TÓPICOS DO VOLUME:</div>
+      <ul class="modal-topics">
+        <li>Conjuntos</li>
+        <li>Conjuntos Numéricos</li>
+        <li>Potenciação e Radiciação</li>
+        <li>Monómios e Polinómios</li>
+        <li>Equações</li>
+      </ul>
 
-        <!-- Measurement lines on jar -->
-        <line x1="346" y1="210" x2="356" y2="210" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
-        <line x1="348" y1="235" x2="362" y2="235" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
-        <line x1="350" y1="260" x2="358" y2="260" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
-        <line x1="352" y1="285" x2="364" y2="285" stroke="#555555" stroke-width="3" stroke-linecap="round"/>
+      <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20comprar%20o%20Volume%20I.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn btn--solid btn--full" style="margin-top: 14px;">
+        Comprar no WhatsApp <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-        <!-- ════════ 404 NUMBERS IN VIBRANT RED ════════ -->
-        <!-- Big Number 4 (Top Left) -->
-        <g transform="translate(378, 185) rotate(16)">
-          <path d="M-8 48 L-8 30 L-28 30 L-8 -26 L10 -26 L10 30 L22 30 L22 48 L10 48 L10 65 L-8 65 Z M-8 14 L-8 -6 L-20 14 Z" 
-                fill="#C0392B"/>
-        </g>
+  <!-- Modal Volume II -->
+  <div class="modal-backdrop" id="modal-vol2" onclick="handleBackdropClick(event, 'modal-vol2')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-vol2')">FECHAR ✕</button>
+      <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
+      <h3 class="modal-title">Volume II — Vencer o nível médio</h3>
 
-        <!-- Big Number 0 (Middle) -->
-        <g transform="translate(390, 275) rotate(-6)">
-          <ellipse cx="0" cy="0" rx="26" ry="38" fill="#E8453C"/>
-          <ellipse cx="0" cy="0" rx="10" ry="22" fill="#0A0A0A"/>
-        </g>
+      <img src="/public/assets/optimized/cover_vol2.webp" alt="Capa Volume II" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
 
-        <!-- Big Number 4 (Bottom Left) -->
-        <g transform="translate(376, 350) rotate(-22)">
-          <path d="M-6 42 L-6 26 L-24 26 L-6 -22 L8 -22 L8 26 L18 26 L18 42 L8 42 L8 56 L-6 56 Z M-6 12 L-6 -4 L-16 12 Z" 
-                fill="#C0392B"/>
-        </g>
+      <div class="modal-section-title">PARA QUEM É?</div>
+      <div class="modal-target">
+        Alunos da 11ª à 13ª classe e professores. Também para candidatos ao Ensino Superior (UAN, UCAN, IPGEST, ISCED, ISPTEC) e a concursos públicos.
+      </div>
 
-        <!-- Dynamic Whirl Motion Arcs in White -->
-        <path d="M346 220 C370 215 425 240 435 270" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
-        <path d="M352 245 C380 230 430 265 432 295" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
-        <path d="M356 270 C385 260 422 285 430 315" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" opacity="0.75"/>
+      <div class="modal-section-title">SOBRE ESTE VOLUME</div>
+      <p class="modal-desc">Traz a matéria do nível médio, onde muitos alunos sentem mais dificuldade. As fórmulas são explicadas uma a uma, com o método Paus da Matemática.</p>
 
-        <!-- Jar Front Glass Reflections -->
-        <path d="M344 165 L354 330" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-        <path d="M352 165 L360 300" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+      <div class="modal-section-title">TÓPICOS DO VOLUME:</div>
+      <ul class="modal-topics">
+        <li>Exponenciais</li>
+        <li>Logaritmos</li>
+        <li>Inequações</li>
+        <li>Trigonometria</li>
+        <li>Geometria Analítica</li>
+      </ul>
 
-        <!-- ════════ BLENDER LID ════════ -->
-        <!-- Lid Outer Rim -->
-        <path d="M328 148 C328 142 334 138 340 138 L440 138 C446 138 452 142 452 148 L454 154 L326 154 Z" 
-              fill="#1A1A1A" stroke="#C0392B" stroke-width="2"/>
-        <!-- Lid Cap Plug -->
-        <path d="M375 138 C375 130 380 124 390 124 L390 124 C400 124 405 130 405 138 Z" 
-              fill="#C0392B"/>
+      <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20reservar%20o%20Volume%20II.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn btn--solid btn--full" style="margin-top: 14px;">
+        Reservar no WhatsApp <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-        <!-- ════════ BLENDER MOTOR BASE IN BLACK/CHARCOAL WITH RED ACCENTS ════════ -->
-        <!-- Rubber Feet -->
-        <rect x="342" y="524" width="18" height="20" rx="5" fill="#000000"/>
-        <rect x="420" y="524" width="18" height="20" rx="5" fill="#000000"/>
+  <!-- Modal Volume III -->
+  <div class="modal-backdrop" id="modal-vol3" onclick="handleBackdropClick(event, 'modal-vol3')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-vol3')">FECHAR ✕</button>
+      <span class="modal-tag">CONTEÚDO PROGRAMÁTICO</span>
+      <h3 class="modal-title">Volume III — Introdução ao Cálculo</h3>
 
-        <!-- Main Bell-shaped Black Motor Housing -->
-        <path d="M350 370 
-                 C330 405 316 450 316 495 
-                 C316 525 330 535 345 535 
-                 L435 535 
-                 C450 535 464 525 464 495 
-                 C464 450 450 405 430 370 
-                 Z" 
-              fill="#141414" stroke="#2B2B2B" stroke-width="4"/>
+      <img src="/public/assets/optimized/cover_vol3.webp" alt="Capa Volume III" class="modal-cover" width="240" height="320" loading="lazy" decoding="async">
 
-        <!-- Red Accent Ring on Base Top -->
-        <path d="M350 372 L430 372" stroke="#C0392B" stroke-width="4" stroke-linecap="round"/>
+      <div class="modal-section-title">PARA QUEM É?</div>
+      <div class="modal-target">
+        Alunos do Ensino Médio e estudantes universitários de Engenharia, Economia e Ciências.
+      </div>
 
-        <!-- Central Rotary Dial / Knob -->
-        <g transform="translate(390, 452)">
-          <circle cx="0" cy="0" r="28" fill="#1F1F1F" stroke="#C0392B" stroke-width="3"/>
-          <circle cx="0" cy="0" r="20" fill="#2A2A2A"/>
-          <!-- Dial Notch in White -->
-          <rect x="-3" y="-20" width="6" height="12" rx="2" fill="#FFFFFF"/>
-        </g>
+      <div class="modal-section-title">SOBRE ESTE VOLUME</div>
+      <p class="modal-desc">Para quem quer ir mais longe. Limites, derivadas e integrais explicados de forma direta, sem complicar.</p>
 
-        <!-- 3 Lower Status Buttons -->
-        <circle cx="366" cy="505" r="5" fill="#C0392B"/>
-        <circle cx="390" cy="505" r="5" fill="#2E2E2E"/>
-        <circle cx="414" cy="505" r="5" fill="#2E2E2E"/>
+      <div class="modal-section-title">TÓPICOS DO VOLUME:</div>
+      <ul class="modal-topics">
+        <li>Sucessões e Progressões</li>
+        <li>Limites</li>
+        <li>Derivadas</li>
+        <li>Estudo de Funções</li>
+        <li>Integrais</li>
+      </ul>
 
-      </svg>
+      <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20reservar%20o%20Volume%20III.%20Nome%3A%20___%20Cidade%2FProv%C3%ADncia%3A%20___" target="_blank" rel="noopener noreferrer" class="btn btn--solid btn--full" style="margin-top: 14px;">
+        Reservar no WhatsApp <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal Professor -->
+  <div class="modal-backdrop" id="modal-mentor" onclick="handleBackdropClick(event, 'modal-mentor')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-mentor')">FECHAR ✕</button>
+      <span class="modal-tag">PERFIL PEDAGÓGICO</span>
+      <h3 class="modal-title">Prof. Celestino Findoff</h3>
+
+      <img src="/public/assets/optimized/author.webp" alt="Prof. Celestino Findoff" class="modal-cover" width="240" height="308" style="max-height: 240px; object-fit: contain;" loading="lazy" decoding="async">
+
+      <div class="modal-section-title">SOBRE</div>
+      <p class="modal-desc">Celestino Donga André Filipe, conhecido como Celestino Findoff, nasceu no Uíge, no município de Maquela do Zombo, e cresceu em Luanda, onde estudou até ao ensino superior.</p>
+
+      <div class="modal-section-title">PERCURSO</div>
+      <p class="modal-desc">Estudou Ciências Físicas e Biológicas no II Ciclo do Ensino Secundário e licenciou-se em Ensino da Matemática no ISCED-Luanda. Dá aulas de Matemática e Física no I e II Ciclo e no Ensino Técnico-Profissional, e prepara estudantes em Matemática, Física e Química para os testes de ingresso.</p>
+
+      <div class="modal-section-title">MÉTODO</div>
+      <p class="modal-desc">Criador do método Paus da Matemática: linguagem simples, cálculo rápido e exercícios resolvidos.</p>
+
+      <a href="https://wa.me/244936560098?text=Ol%C3%A1%2C%20Professor%20Celestino!%20Quero%20saber%20como%20adquirir%20a%20cole%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn--solid btn--full" style="margin-top: 14px;">
+        Falar no WhatsApp <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       ASSISTENTE DO SITE (MENSAGEM DE BOAS-VINDAS E ORIENTAÇÃO)
+       ═════════════════════════════════════════════════════════════ -->
+  <aside class="site-assistant" id="siteAssistant">
+    <!-- Cartão do Chat de Atendimento -->
+    <div class="assistant-card" id="assistantCard" role="dialog" aria-labelledby="assistantTitle">
+      <div class="assistant-header">
+        <div class="assistant-header-profile">
+          <div class="assistant-avatar-wrap" style="width: 36px; height: 36px;">
+            <img src="/public/assets/optimized/author.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="36" height="36" loading="lazy">
+            <span class="assistant-online-dot"></span>
+          </div>
+          <div>
+            <div id="assistantTitle" style="font-family: var(--font-title); font-size: 15px; font-weight: 800; text-transform: uppercase; color: #fff;">Todos os Paus da Matemática</div>
+            <div style="font-size: 11px; color: #4ade80;">● Atendimento Oficial • Online</div>
+          </div>
+        </div>
+        <button class="assistant-close" onclick="closeAssistant(event)" aria-label="Fechar atendimento">✕</button>
+      </div>
+
+      <!-- Fluxo de Mensagens -->
+      <div class="assistant-messages" id="assistantMessages">
+        <div class="chat-msg chat-msg--assistant">
+          <div class="chat-bubble">
+            <p style="margin-bottom: 8px;">Olá! 😊 Muito obrigado pelo seu interesse no livro <strong>Todos os Paus da Matemática</strong>. 📘</p>
+            <p style="margin-bottom: 8px;">Cada volume custa <strong style="color: #4ade80;">10.000 Kz</strong> e foi desenvolvido para ajudar os alunos a melhorar o seu desempenho em Matemática e apoiar os professores na planificação das aulas.</p>
+            <p>📚 <strong>Qual dos volumes deseja adquirir?</strong> Terei todo o prazer em orientá-lo na compra!</p>
+          </div>
+        </div>
+
+        <div class="chat-typing" id="assistantTyping">
+          <span>A responder</span>
+          <div class="chat-typing-dots">
+            <span class="chat-typing-dot"></span>
+            <span class="chat-typing-dot"></span>
+            <span class="chat-typing-dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perguntas Mais Prováveis (Sugestões Rápidas) -->
+      <div class="chat-suggestions">
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Quero comprar o Volume I')">📘 Quero o Volume I</button>
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Quero reservar o Volume II')">📗 Quero o Volume II</button>
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Quero reservar o Volume III')">📙 Quero o Volume III</button>
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Como é feita a entrega e pagamento?')">🚚 Entrega e envio</button>
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Para que classes é recomendado?')">🎯 Para que classes é?</button>
+        <button type="button" class="chat-chip" onclick="sendSuggestion('Falar com o Professor no WhatsApp')">💬 WhatsApp Direto</button>
+      </div>
+
+      <!-- Barra de Input para Conversar com o Agente de IA -->
+      <form class="chat-input-bar" id="assistantChatForm" onsubmit="handleChatSubmit(event)">
+        <input type="text" id="assistantInput" class="chat-input" placeholder="Escreva a sua dúvida aqui..." autocomplete="off">
+        <button type="submit" class="chat-send-btn" aria-label="Enviar mensagem">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </form>
     </div>
 
-  </main>
+    <!-- Botão Flutuante (sempre visível no canto inferior) -->
+    <button class="assistant-trigger" id="assistantTrigger" onclick="toggleAssistant()" aria-label="Abrir atendimento">
+      <div class="assistant-avatar-wrap">
+        <img src="/public/assets/optimized/author.webp" alt="Todos os Paus da Matemática" class="assistant-avatar-img" width="44" height="44" loading="lazy">
+        <span class="assistant-online-dot"></span>
+      </div>
+      <div class="assistant-trigger-text">
+        <span class="assistant-trigger-title">Todos os Paus da Matemática</span>
+        <span class="assistant-trigger-sub">Atendimento • 10.000 Kz</span>
+      </div>
+    </button>
+  </aside>
 
+  <!-- ═════════════════════════════════════════════════════════════
+       MODAL DE AMPLIAR CAPTURA DO ALUNO
+       ═════════════════════════════════════════════════════════════ -->
+  <div class="student-modal" id="studentModal" onclick="handleStudentModalBackdrop(event)">
+    <div class="student-modal-wrapper">
+      <button class="student-modal-close" onclick="closeStudentModal(event)">FECHAR ✕</button>
+      <img src="" alt="Conversa de estudante no WhatsApp" id="studentModalImg" class="student-modal-img">
+      <div class="student-modal-caption" id="studentModalCaption"></div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       SCRIPTS: CONTROLO DO HEADER, MENU MOBILE, MODAIS E SCROLL REVEAL
+       ═════════════════════════════════════════════════════════════ -->
+  <script>
+    // Suporte a Save-Data do navegador
+    if (navigator.connection && navigator.connection.saveData) {
+      document.documentElement.classList.add('save-data');
+    }
+
+    // Registo de Service Worker para cache local ultra rápida
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+
+    // Header scroll reveal & blur otimizado com requestAnimationFrame
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+    const header = document.getElementById('mainHeader');
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > 40) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+
+          if (currentScrollY > 120 && currentScrollY > lastScrollY) {
+            header.classList.add('header--hidden');
+          } else {
+            header.classList.remove('header--hidden');
+          }
+
+          lastScrollY = currentScrollY;
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+
+    // Menu Mobile
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        hamburgerBtn.classList.add('active');
+        mobileMenu.classList.add('open');
+        menuBackdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeMenu() {
+      hamburgerBtn.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      menuBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', toggleMenu);
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    function scrollToId(id) {
+      closeMenu();
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Modais
+    function openModal(id) {
+      const modal = document.getElementById(`modal-${id}`);
+      if (!modal) return;
+      modal.style.display = 'flex';
+      requestAnimationFrame(() => {
+        modal.classList.add('open');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+      modal.classList.remove('open');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 250);
+    }
+
+    function handleBackdropClick(event, modalId) {
+      if (event.target.id === modalId) {
+        closeModal(modalId);
+      }
+    }
+
+    // Modal de Ampliação de Mensagens de Alunos
+    const studentModal = document.getElementById('studentModal');
+    const studentModalImg = document.getElementById('studentModalImg');
+    const studentModalCaption = document.getElementById('studentModalCaption');
+
+    function openStudentModal(src, caption, event) {
+      if (event) {
+        event.stopPropagation();
+      }
+      if (!studentModal) return;
+      if (studentModalImg) studentModalImg.src = src;
+      if (studentModalCaption) studentModalCaption.textContent = caption || '';
+
+      studentModal.style.display = 'flex';
+      requestAnimationFrame(() => {
+        studentModal.classList.add('is-open');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeStudentModal(event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      if (!studentModal) return;
+      studentModal.classList.remove('is-open');
+      setTimeout(() => {
+        studentModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 250);
+    }
+
+    function handleStudentModalBackdrop(event) {
+      if (event.target === studentModal) {
+        closeStudentModal(event);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        ['modal-vol1', 'modal-vol2', 'modal-vol3', 'modal-mentor'].forEach(id => closeModal(id));
+        closeStudentModal();
+        closeMenu();
+      }
+    });
+
+    // Scroll Reveal Animations
+    const revealObserver = ('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.1
+        })
+      : null;
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      if (revealObserver) {
+        revealObserver.observe(el);
+      } else {
+        el.classList.add('is-revealed');
+      }
+    });
+
+    // Atendimento Oficial do Site (Todos os Paus da Matemática)
+    const assistantCard = document.getElementById('assistantCard');
+    const assistantMessages = document.getElementById('assistantMessages');
+    const assistantTyping = document.getElementById('assistantTyping');
+    const assistantInput = document.getElementById('assistantInput');
+    const chatHistory = [];
+    let lastClosedAt = 0;
+
+    function openAssistant() {
+      if (!assistantCard) return;
+      assistantCard.style.display = 'flex';
+      requestAnimationFrame(() => {
+        assistantCard.classList.add('is-open');
+      });
+      if (assistantInput) {
+        setTimeout(() => assistantInput.focus(), 300);
+      }
+    }
+
+    function closeAssistant(e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      lastClosedAt = Date.now();
+      if (!assistantCard) return;
+      assistantCard.classList.remove('is-open');
+      setTimeout(() => {
+        assistantCard.style.display = 'none';
+      }, 250);
+    }
+
+    function toggleAssistant(e) {
+      if (e) e.stopPropagation();
+      if (!assistantCard) return;
+      if (assistantCard.classList.contains('is-open')) {
+        closeAssistant(e);
+      } else {
+        openAssistant();
+      }
+    }
+
+    function formatMessageText(text) {
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      let formatted = text.replace(urlRegex, (url) => {
+        const isWa = url.includes('wa.me');
+        const label = isWa ? '👉 Encomendar no WhatsApp' : url;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      });
+      return formatted.replace(/\n/g, '<br>');
+    }
+
+    function addMessageToUI(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg chat-msg--${sender}`;
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble';
+      bubble.innerHTML = formatMessageText(text);
+
+      msgDiv.appendChild(bubble);
+
+      if (assistantTyping) {
+        assistantMessages.insertBefore(msgDiv, assistantTyping);
+      } else {
+        assistantMessages.appendChild(msgDiv);
+      }
+
+      assistantMessages.scrollTop = assistantMessages.scrollHeight;
+    }
+
+    async function sendChatMessage(userText) {
+      if (!userText || !userText.trim()) return;
+      const cleanText = userText.trim();
+
+      addMessageToUI('user', cleanText);
+      chatHistory.push({ role: 'user', content: cleanText });
+
+      if (assistantTyping) {
+        assistantTyping.style.display = 'inline-flex';
+        assistantMessages.scrollTop = assistantMessages.scrollHeight;
+      }
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: cleanText, history: chatHistory.slice(-6) })
+        });
+
+        if (!res.ok) throw new Error('Falha no pedido');
+        const data = await res.json();
+        const reply = data.reply || 'Cada volume custa 10.000 Kz. Podes encomendar o teu diretamente pelo WhatsApp: https://wa.me/244936560098';
+
+        if (assistantTyping) assistantTyping.style.display = 'none';
+        addMessageToUI('assistant', reply);
+        chatHistory.push({ role: 'assistant', content: reply });
+      } catch (err) {
+        if (assistantTyping) assistantTyping.style.display = 'none';
+        const fallbackReply = 'Cada volume custa 10.000 Kz. Podes falar no WhatsApp oficial: https://wa.me/244936560098';
+        addMessageToUI('assistant', fallbackReply);
+      }
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      if (!assistantInput) return;
+      const text = assistantInput.value;
+      assistantInput.value = '';
+      sendChatMessage(text);
+    }
+
+    function sendSuggestion(text) {
+      sendChatMessage(text);
+    }
+
+    // "Preciso que coloque essa mensagem, sempre que alguém dá um click no site"
+    // Ao clicar em qualquer local do site, se o atendimento estiver recolhido, abre com a mensagem oficial.
+    document.addEventListener('click', (e) => {
+      // Ignorar cliques dentro do próprio chat ou no botão flutuante
+      if (e.target.closest('#siteAssistant')) return;
+      // Não reabrir se o utilizador acabou de carregar no botão fechar (✕) nos últimos 600ms
+      if (Date.now() - lastClosedAt < 600) return;
+      // Não abrir se clicou para fechar um modal de livro, galeria de alunos, ou no menu móvel
+      if (e.target.closest('.modal-close') || e.target.closest('.student-modal-close') || e.target.closest('.student-modal') || e.target.closest('.student-card') || e.target.closest('.menu-backdrop')) return;
+
+      if (assistantCard && !assistantCard.classList.contains('is-open')) {
+        openAssistant();
+      }
+    });
+  </script>
 </body>
 </html>

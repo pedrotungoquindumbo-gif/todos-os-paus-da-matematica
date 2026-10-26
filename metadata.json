@@ -1,6 +1,6 @@
 {
   "name": "Todos os Paus da Matemática",
-  "description": "Sebenta Preparatória do Prof. Celestino Findoff. Teoria, prática e testes de admissão. Disponível por Kz 10.000.",
+  "description": "Coleção de 3 livros de Matemática, do básico ao cálculo. Obra pedagógica do Prof. Celestino Findoff.",
   "permissions": [],
-  "capabilities": []
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
